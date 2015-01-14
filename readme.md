@@ -1,5 +1,9 @@
 #jquery.autoStick.js
 
+##download
+
+[jquery.autoStick.js](https://raw.githubusercontent.com/steelydylan/jquery.autoStick.js/master/js/jquery.autoStick.js)
+
 ##usage
 
 ```js
