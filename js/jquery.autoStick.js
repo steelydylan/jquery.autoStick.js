@@ -1,3 +1,10 @@
+/**
+* jquery.autoStick.js
+* @version v0.1.0
+* @author steelydylan
+* @link http://horicdesign.com
+* @license MIT License
+*/
 (function($){
 	var defaults = {
 		wrapperElement:"body",
