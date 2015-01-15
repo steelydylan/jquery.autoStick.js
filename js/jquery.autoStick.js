@@ -51,7 +51,7 @@
                     }else{
                         $this.css("position","fixed");
                         $this.css("top",opt.fixTop);
-                        $this.css("left",$(beforeElement).offset().left);
+                        $this.css("left",$wrapper.offset().left+opt.marginLeft);
                     }
                 }else{
                     $this.css("position","absolute");
