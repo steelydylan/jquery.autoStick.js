@@ -35,13 +35,12 @@
                     return true;
                 }          
                 var scroll = $(this).scrollTop();
-                var height = 0;
                 var beforeElement = opt.beforeElement;
                 var beforeHeight = $wrapper.offset().top;
                 if(beforeElement){
                     beforeHeight = $(beforeElement).offset().top + $(beforeElement).height();
                 }
-                if(scroll > height - opt.marginTop){
+                if(scroll > beforeHeight - opt.marginTop){
                     if(scroll + $this.height() + opt.marginBottom > $wrapper.offset().top + $wrapper.height()){
                         var bottom = $wrapper.outerHeight() - $this.outerHeight();
                         $this.css("position","absolute");
