@@ -5,7 +5,6 @@
 * @link http://horicdesign.com
 * @license MIT License
 */
-
 (function($){
     var defaults = {
         wrapperElement:"body",
@@ -30,7 +29,6 @@
                     return true;
                 }
             });
-            var width = $(this).width();
             $(window).scroll(function(){   
                 if(!opt.enableCondition.apply(that)){
                     $this.css("position","static");
@@ -50,20 +48,17 @@
                         $this.css("position","absolute");
                         $this.css("top",bottom - opt.marginBottom);
                         $this.css("left",opt.marginLeft);
-                        $this.width("auto");
                         width = $this.width();
                     }else{
                         $this.css("position","fixed");
                         $this.css("top",opt.marginTop);
                         $this.css("left",$(beforeElement).offset().left);
-                        $this.width(width);
                     }
                 }else{
                     $this.css("position","absolute");
                     if(beforeHeight){
-                        $this.css("top",beforeHeight - $(beforeElement).offset().top);
+                        $this.css("top",beforeHeight);
                         $this.css("left",opt.marginLeft);
-                        $this.width("auto");
                         width = $this.width();
                     }
                 }
