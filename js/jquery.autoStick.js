@@ -24,13 +24,6 @@
             $wrapper.css("position","relative");
             var $this = $(this);
             var that = this;
-            $(window).resize(function(){
-                if(!opt.enableCondition.apply(that)){
-                    $this.css("position","static");
-                    $this.css("marginTop",opt.marginTop);
-                    return true;
-                }
-            });
             $(window).scroll(function(){  
                 if(!opt.enableCondition.apply(that)){
                     $this.css("position","static");
@@ -65,6 +58,9 @@
                     }
                 }
             }).scroll();
+            $(window).resize(function(){
+                $(window).scroll();
+            });
         }
     })
 })(jQuery);
