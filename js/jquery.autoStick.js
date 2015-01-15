@@ -10,7 +10,6 @@
         wrapperElement:"body",
         beforeElement:null,
         marginTop:20,
-        fixTop:20,
         marginBottom:20,
         marginLeft:10,
         enableCondition:function(){
@@ -20,6 +19,7 @@
     $.fn.extend({
         autoStick:function(opt){
             opt = $.extend(defaults,opt);
+            opt.fixTop = opt.fixTop || opt.marginTop;
             $wrapper = $(opt.wrapperElement);
             $wrapper.css("position","relative");
             var $this = $(this);
@@ -39,10 +39,10 @@
                 var beforeElement = opt.beforeElement;
                 var beforeHeight = $wrapper.offset().top;
                 if(beforeElement){
-                    beforeHeight = $(beforeElement).offset().top + $(beforeElement).height();
+                    beforeHeight = $(beforeElement).offset().top + $(beforeElement).outerHeight();
                 }
                 if(scroll > beforeHeight - opt.marginTop){
-                    if(scroll + $this.height() + opt.marginBottom > $wrapper.offset().top + $wrapper.height()){
+                    if(scroll + $this.height() + opt.marginBottom + opt.fixTop > $wrapper.offset().top + $wrapper.height()){
                         var bottom = $wrapper.outerHeight() - $this.outerHeight();
                         $this.css("position","absolute");
                         $this.css("top",bottom - opt.marginBottom);
