@@ -27,21 +27,24 @@
             $(window).resize(function(){
                 if(!opt.enableCondition.apply(that)){
                     $this.css("position","static");
+                    $this.css("marginTop",opt.marginTop);
                     return true;
                 }
             });
             $(window).scroll(function(){  
                 if(!opt.enableCondition.apply(that)){
                     $this.css("position","static");
+                    $this.css("marginTop",opt.marginTop);
                     return true;
-                }         
+                }
+                $this.css("marginTop",0);         
                 var scroll = $(this).scrollTop();
                 var beforeElement = opt.beforeElement;
                 var beforeHeight = $wrapper.offset().top;
                 if(beforeElement){
                     beforeHeight = $(beforeElement).offset().top + $(beforeElement).outerHeight();
                 }
-                if(scroll > beforeHeight - opt.marginTop){
+                if(scroll > beforeHeight){
                     if(scroll + $this.height() + opt.marginBottom + opt.fixTop > $wrapper.offset().top + $wrapper.height()){
                         var bottom = $wrapper.outerHeight() - $this.outerHeight();
                         $this.css("position","absolute");
@@ -56,7 +59,7 @@
                 }else{
                     $this.css("position","absolute");
                     if(beforeHeight){
-                        $this.css("top",beforeHeight-$wrapper.offset().top);
+                        $this.css("top",beforeHeight-$wrapper.offset().top+opt.marginTop);
                         $this.css("left",opt.marginLeft);
                         width = $this.width();
                     }
