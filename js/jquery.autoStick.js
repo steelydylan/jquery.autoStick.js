@@ -10,6 +10,7 @@
         wrapperElement:"body",
         beforeElement:null,
         marginTop:20,
+        fixTop:20,
         marginBottom:20,
         marginLeft:10,
         enableCondition:function(){
@@ -29,11 +30,11 @@
                     return true;
                 }
             });
-            $(window).scroll(function(){   
+            $(window).scroll(function(){  
                 if(!opt.enableCondition.apply(that)){
                     $this.css("position","static");
                     return true;
-                }          
+                }         
                 var scroll = $(this).scrollTop();
                 var beforeElement = opt.beforeElement;
                 var beforeHeight = $wrapper.offset().top;
@@ -49,7 +50,7 @@
                         width = $this.width();
                     }else{
                         $this.css("position","fixed");
-                        $this.css("top",opt.marginTop);
+                        $this.css("top",opt.fixTop);
                         $this.css("left",$(beforeElement).offset().left);
                     }
                 }else{
@@ -60,7 +61,7 @@
                         width = $this.width();
                     }
                 }
-            });
+            }).scroll();
         }
     })
 })(jQuery);
